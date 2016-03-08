@@ -57,3 +57,11 @@ code {
 .content .by {
   font-weight: bold;
 }
+
+.name {
+  font-weight: bold;
+}
+
+/*.page-header {
+  position: 500px;
+}*/

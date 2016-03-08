@@ -5,12 +5,11 @@ var people = [{name: 'Full'}, {name: 'Stacker'}, {name: 'Son'}];
 var routes = require("./routes");
 
 
-app.use('/', routes)
+app.use('/', routes)  // <-- CHANGE TO .GET SO STYLESHEET DOESNT GO THRU HERE?
+
 // // swig stuff
 app.engine('html', swig.renderFile);
-
 app.set('view engine', 'html');
-
 app.set('views', __dirname + '/views');
 swig.setDefaults({ cache: false });
 
@@ -20,10 +19,23 @@ swig.setDefaults({ cache: false });
 
 //app.use(express.static('public'));
 
+
+
+
+
+
+
+
+
+
 app.use(function(request, response, next){
 	console.log(request.method, request.originalUrl, response.statusCode);
+	console.log('Im right before next()')
 	next();
 })
+
+console.log('hey im static')
+
 app.use(express.static('public'));
 
 
@@ -32,7 +44,6 @@ app.use(express.static('public'));
 // 	response.send(' ')
 // 	console.log('you reached the special area')
 // })
-
 
 
 // app.get("/", function(request, response){
@@ -45,5 +56,3 @@ app.use(express.static('public'));
 
 app.listen(3000);
 console.log('server listening...');
-
-// I added a comment here

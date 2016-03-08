@@ -40,10 +40,11 @@ for (var i = 0; i < 10; i++) {
 }
 
 // names we made
-// data.push({name: 'Dave Johnson',
-// 			text: 'hi'});
+data.push({name: 'Dave Johnson',
+			text: 'hi, whats up'});
 
 
 
 
-//console.log(find({'name':'Dave Johnson'}));
+// console.log(find({'name':'Dave Johnson'}));
+//console.log(data)
