@@ -3,9 +3,17 @@ var app = express();
 var swig = require('swig');
 var people = [{name: 'Full'}, {name: 'Stacker'}, {name: 'Son'}];
 var routes = require("./routes");
+var bodyParser = require('body-parser');
 
 
-app.use('/', routes)  // <-- CHANGE TO .GET SO STYLESHEET DOESNT GO THRU HERE?
+
+
+
+app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.json());
+
+
+app.use('/', routes)  
 
 // // swig stuff
 app.engine('html', swig.renderFile);
@@ -31,6 +39,7 @@ swig.setDefaults({ cache: false });
 app.use(function(request, response, next){
 	console.log(request.method, request.originalUrl, response.statusCode);
 	console.log('Im right before next()')
+
 	next();
 })
 
